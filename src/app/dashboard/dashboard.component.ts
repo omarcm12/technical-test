@@ -9,13 +9,16 @@ import { ArticlesServiceService } from '../articles-service.service';
 export class DashboardComponent implements OnInit {
 
   constructor(private articleService: ArticlesServiceService){
-
   }
 
-  articles: { id: number; title: string; description: string; author: string; date: string; }[] = [];
+  articles: any = [];
 
   ngOnInit(): void {
-    this.articles = this.articleService.getArticles().articles;
+    this.articleService.get("http://localhost:3000/articles").subscribe(result  => {
+       this.articles = result;
+      }
+     )
+    
   }
 
 

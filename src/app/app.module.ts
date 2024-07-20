@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './card/card.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
