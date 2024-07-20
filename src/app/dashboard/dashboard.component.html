@@ -1,4 +1,11 @@
 <div class="main">
+    <section>
+        <app-navbar></app-navbar>
+    </section>
+    <section class="search-bar container">
+        <app-search-bar></app-search-bar>
+    </section>
+    
     <div class="dashboard-container container">
         <div *ngFor="let article of articles">
             <app-card [article]="article"> </app-card>

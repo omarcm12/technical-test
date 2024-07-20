@@ -1,4 +1,22 @@
 .article{
     overflow-y: auto;
     background-color: #fbfcfd;
+    border: 0.5px solid #ececed;
+    border-radius: 10px;
+
+    .article-header{
+        img{
+            border-radius: 0% 0% 50% 0%;;
+        }
+    }
+
+    .article-body{
+        padding: 15px;
+    }
+
+    .article-footer{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+    }
 }
