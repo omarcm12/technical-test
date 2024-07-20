@@ -10,6 +10,10 @@ import { CardComponent } from './card/card.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditArticleComponent } from './components/edit-article/edit-article.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import {ReactiveFormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,16 +21,19 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     CardComponent,
     LoginModalComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    EditArticleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    BsModalService
   ],
   bootstrap: [AppComponent]
 })
