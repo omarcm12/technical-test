@@ -9,13 +9,34 @@ import { ArticlesServiceService } from '../articles-service.service';
 export class DashboardComponent implements OnInit {
 
   constructor(private articleService: ArticlesServiceService){
-
   }
 
-  articles: { id: number; title: string; description: string; author: string; date: string; }[] = [];
+  articles: any = [];
+  page: number = 1;
 
   ngOnInit(): void {
-    this.articles = this.articleService.getArticles().articles;
+    this.getArticles();
+  }
+
+  addArticle(){
+    const newArticle = {
+      "id":10,
+      "title": "Keeping the dream alive by traveling the world.",
+      "description": "Integrate the lastes technologies with an innovative platform",
+      "author": "ALIVE COOPER",
+      "date": "2024-07-02"
+    }
+    this.articleService.post("http://localhost:3000/articles", newArticle).subscribe(r => {
+        this.getArticles();
+    });
+  }
+
+  getArticles(){
+   const url = "http://localhost:3000/articles";
+    this.articleService.get(url).subscribe(result => {
+     this.articles = result;
+     }
+    )
   }
 
 

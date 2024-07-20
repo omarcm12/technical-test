@@ -1,72 +1,22 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class ArticlesServiceService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  db = {articles:[
-    {
-      "id": 1,
-      "title": "Post 1",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 2,
-      "title": "Post 2",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 3,
-      "title": "Post 3",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 4,
-      "title": "Post 1",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 5,
-      "title": "Post 2",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 6,
-      "title": "Post 1",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 7,
-      "title": "Post 2",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    },
-    {
-      "id": 8,
-      "title": "Post 3",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": '2024-07-02'
-    }
-  ]}
-
-  getArticles(){
-    return this.db;
+  public get(url: string, options?: any) {
+    return this.http.get(url, options);
+  }
+  public post(url: string, data: any, options?: any) {
+    return this.http.post(url, data, options);
+  }
+  public put(url: string, data: any, options?: any) {
+    return this.http.put(url, data, options);
+  }
+  public delete(url: string, options?: any) {
+    return this.http.delete(url, options);
   }
 }

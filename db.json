@@ -1,0 +1,18 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Keeping the dream alive by traveling the world.",
+      "description": "Integrate the lastes technologies with an innovative platform",
+      "author": "ALIVE COOPER",
+      "date": "2024-07-02"
+    },
+    {
+      "id": 10,
+      "title": "Keeping the dream alive by traveling the world.",
+      "description": "Integrate the lastes technologies with an innovative platform",
+      "author": "ALIVE COOPER",
+      "date": "2024-07-02"
+    }
+  ]
+}
