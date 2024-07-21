@@ -1,8 +1,21 @@
-.main{
+.main {
     background-color: #f5f5f5;
-    .dashboard-container{
+
+    .dashboard-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 30px;
+        grid-gap: 1rem;
+    }
+
+
+    @media (min-width: 600px) {
+        .dashboard-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 900px) {
+        .dashboard-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }

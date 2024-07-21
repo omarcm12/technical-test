@@ -4,11 +4,11 @@
     </section>
     <section class="search-bar container">
         <app-search-bar></app-search-bar>
+        <app-add-article (updateArticles)="getArticles()"></app-add-article>
     </section>
-    <app-edit-article></app-edit-article>
     <div class="dashboard-container container">
         <div *ngFor="let article of articles">
-            <app-card [article]="article"> </app-card>
+            <app-card [article]="article" (updateArticles)="getArticles()"> </app-card>
         </div>
     </div>
 </div>

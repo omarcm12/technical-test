@@ -5,7 +5,20 @@
     border-radius: 10px;
 
     .article-header{
+        position: relative;
+        .favorite-icon{
+            right: 0;
+            position: absolute;
+            cursor: pointer;
+            color: #b4c2d3;
+        }
+
+        .favorite{
+            color:#fba91c;
+        }
+
         img{
+            display: block;
             border-radius: 0% 0% 50% 0%;;
         }
     }
