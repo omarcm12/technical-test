@@ -10,8 +10,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class EditArticleComponent implements OnInit {
 
   modalRef?: BsModalRef;
-  constructor(private modalService: BsModalService
+  constructor(
+    private modalService: BsModalService  
   ) {}
+
   ngOnInit(): void {
     /*this.form = new FormGroup({
       id: new UntypedFormControl(''),

@@ -9,15 +9,15 @@
     <div class="modal-body" >
         <form [formGroup]="form" class="form">
             <label for="title">Title: </label>
-            <input id="title" type="text" formControlName="title">
+            <input id="title" class="form-control" type="text" formControlName="title">
             <label for="author">Author: </label>
-            <input id="author" type="text" formControlName="author">
+            <input id="author" class="form-control" type="text" formControlName="author">
             <label for="description">Description: </label>
-            <input id="description" type="text" formControlName="description">
+            <input id="description" class="form-control" type="text" formControlName="description">
             <label for="lonDescription">Long Description</label>
-            <textarea name="lonDescription" id="longDescription"></textarea>
+            <textarea name="lonDescription" class="form-control" id="longDescription"></textarea>
             <label for="date">Date: </label>
-            <input id="date" type="date" formControlName="date" placeholder="Datepicker">
+            <input id="date" type="date" class="form-control" formControlName="date" placeholder="Datepicker">
         </form>
     </div>
     <div class="modal-footer">
