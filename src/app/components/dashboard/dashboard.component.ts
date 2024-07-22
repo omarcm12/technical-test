@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ArticlesServiceService } from '../../services/articles-service.service';
+import { API_URL } from '../../constants';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,32 +13,15 @@ export class DashboardComponent implements OnInit {
   }
 
   articles: any = [];
-  page: number = 1;
 
   ngOnInit(): void {
     this.getArticles();
   }
 
-  addArticle(){
-    const newArticle = {
-      "id":10,
-      "title": "Keeping the dream alive by traveling the world.",
-      "description": "Integrate the lastes technologies with an innovative platform",
-      "author": "ALIVE COOPER",
-      "date": "2024-07-02"
-    }
-    this.articleService.post("http://localhost:3000/articles", newArticle).subscribe(r => {
-        this.getArticles();
-    });
-  }
-
   getArticles(){
-   const url = "http://localhost:3000/articles";
-    this.articleService.get(url).subscribe(result => {
+    this.articleService.get(`${API_URL}/articles`).subscribe(result => {
      this.articles = result;
      }
     )
   }
-
-
 }

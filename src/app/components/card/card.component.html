@@ -1,14 +1,14 @@
 <article class="article"> 
     <section class="article-header">
-        <mat-icon class="favorite-icon" [ngClass]="{'favorite': article.favorite}" (click)="markAsFavorite()">grade</mat-icon>
-        <img src="img/image1.jpg" alt="" width="100%" height="300px">
+        <mat-icon class="favorite-icon" [matTooltip]="favoriteTooltip" [ngClass]="{'favorite': article.favorite}" (click)="markAsFavorite()">grade</mat-icon>
+        <img src="img/image1.png" alt="" width="100%" height="300px">
     </section>
     <section class="article-body">
-        <h2>{{ article.title}}</h2>
-        {{ article.description }}
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p> 
     </section>
     <section class="article-footer">
-        <span>{{ article.author }}</span> <span>{{ article.date | date:"MMM d" }} <mat-icon [style.cursor]="'pointer'" (click)="deleteArticle()">delete</mat-icon></span>
-        
+        <span> <img src="img/user1.png" class="user-img" width="30px" height="30px" />  {{ article.author }}</span> 
+        <span><label>{{ article.date | date:"MMM d" }}</label>  <mat-icon  matTooltip="Delete article" class="delete-icon" (click)="deleteArticle()">delete</mat-icon></span>
     </section>
 </article>

@@ -1,35 +1,55 @@
-.article{
+.article {
     overflow-y: auto;
     background-color: #fbfcfd;
     border: 0.5px solid #ececed;
     border-radius: 10px;
 
-    .article-header{
+    .article-header {
         position: relative;
-        .favorite-icon{
+
+        .favorite-icon {
             right: 0;
             position: absolute;
             cursor: pointer;
             color: #b4c2d3;
         }
 
-        .favorite{
-            color:#fba91c;
+        .favorite {
+            color: #fba91c;
         }
 
-        img{
+        img {
             display: block;
-            border-radius: 0% 0% 50% 0%;;
+            border-radius: 0% 0% 50% 0%;
+            ;
         }
     }
 
-    .article-body{
+    .article-body {
         padding: 15px;
+        p{
+            color: #98a4b4;
+        }
     }
 
-    .article-footer{
+    .article-footer {
+        color: #98a4b4;
+        font-weight: bold;
         display: flex;
         justify-content: space-between;
         padding: 15px;
+        border-top: solid 1px #f0f0f0;
+
+        .user-img{
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .delete-icon {
+            cursor: pointer;
+            vertical-align: middle;
+            margin-bottom: 2px;
+            margin-left: 10px;
+        }
     }
 }

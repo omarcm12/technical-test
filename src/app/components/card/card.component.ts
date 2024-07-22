@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ArticlesServiceService } from '../../services/articles-service.service';
-
+import { API_URL } from '../../constants';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   @Input() article: any;
   @Output() updateArticles = new EventEmitter();
@@ -16,12 +16,8 @@ export class CardComponent implements OnInit {
     private articlesService: ArticlesServiceService
   ){}
 
-  ngOnInit(): void {
-    console.log(this.article)
-  }
-
   deleteArticle(){
-    this.articlesService.delete("http://localhost:3000/articles/" + this.article.id).subscribe( r => {
+    this.articlesService.delete(`${API_URL}/articles/${this.article.id}`).subscribe( r => {
       this.updateArticles.emit();
     })
   }
@@ -29,9 +25,13 @@ export class CardComponent implements OnInit {
   editArticle(){
     this.updateArticle.emit(this.article);
   }
+
+  get favoriteTooltip(){
+    return this.article.favorite ? "Unmark as favorite" : "Mark as favorite";
+  }
   
   markAsFavorite(){
-    this.articlesService.put("http://localhost:3000/articles/" + this.article.id, { ...this.article, favorite: !this.article.favorite }).subscribe( r => {
+    this.articlesService.put(`${API_URL}/articles/${this.article.id}`, { ...this.article, favorite: !this.article.favorite }).subscribe( r => {
       this.updateArticles.emit();
     })
   }

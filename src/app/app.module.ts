@@ -14,6 +14,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AddArticleComponent } from './components/add-article/add-article.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AddArticleComponent } from './components/add-article/add-article.compon
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [
     provideClientHydration(),

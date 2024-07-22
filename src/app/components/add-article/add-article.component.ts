@@ -3,7 +3,7 @@ import { FormControl, FormGroup, UntypedFormControl, Validators } from '@angular
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ArticlesServiceService } from '../../services/articles-service.service';
 import { Output, EventEmitter } from '@angular/core';
-
+import { API_URL } from '../../constants';
 @Component({
   selector: 'app-add-article',
   templateUrl: './add-article.component.html',
@@ -20,7 +20,7 @@ export class AddArticleComponent {
     title: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
     author: new FormControl('', [Validators.required]),
-    date: new FormControl(new Date()),
+    date: new UntypedFormControl(''),
     favorite: new UntypedFormControl(false)
   });
 
@@ -39,12 +39,24 @@ export class AddArticleComponent {
   }
 
   saveArticle(){
-    this.form.patchValue({ ...this.form.value, id: Date.now().toString()})
+    this.form.patchValue({ ...this.form.value, id: Date.now().toString(), date: new Date()})
     const newArticle = this.form.value;
-    this.articlesService.post("http://localhost:3000/articles", newArticle).subscribe(r => {
+    this.articlesService.post(`${API_URL}/articles`, newArticle).subscribe(r => {
       this.updateArticles.emit();
+      this.cleanUpForm();
       this.closeModal();
     });
+  }
+
+  cleanUpForm(){
+    this.form.patchValue({
+      id: '',
+      title: '',
+      description: '',
+      author: '',
+      date: '',
+      favorite: false
+    })
   }
 
 }
