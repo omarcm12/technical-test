@@ -19,6 +19,6 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" (click)="saveArticle()">Save Article </button>
+        <button class="btn btn-primary" [disabled]="form.invalid" (click)="saveArticle()">Save Article </button>
     </div>
   </ng-template>
