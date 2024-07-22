@@ -8,7 +8,9 @@ export class ArticlesServiceService {
   constructor(private http: HttpClient) { }
 
   public get(url: string, options?: any) {
-    return this.http.get(url, options);
+    //HACK: To make sure always request the data and does't use browser cache
+    const uniqueParam = new Date().getTime();
+    return this.http.get(`${url}?cacheBuster=${uniqueParam}`, options);
   }
   public post(url: string, data: any, options?: any) {
     return this.http.post(url, data, options);
